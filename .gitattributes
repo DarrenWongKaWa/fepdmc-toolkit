@@ -1,0 +1,4 @@
+# These files contain CRLF line endings that are part of their recorded SHA256
+# (validation/SHA256SUMS). Never convert their line endings.
+src/fepdmc_toolkit/scheme_d/physics_first/symbolic/rebind_cases.csv -text whitespace=cr-at-eol
+benchmarks/c5_dev/c5_per_chain_diagnostics.csv -text whitespace=cr-at-eol

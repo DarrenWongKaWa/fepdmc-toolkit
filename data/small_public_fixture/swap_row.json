@@ -1,0 +1,11 @@
+{
+  "tauL": 1.0,
+  "tauR": 2.0,
+  "w1": 0.07,
+  "w2": 0.12,
+  "tpl": -3.0,
+  "tpr": 4.0,
+  "ek_old": 0.3,
+  "ek_new": 0.8,
+  "note": "synthetic occupancy-reverse example; not a native LiF event"
+}

@@ -1,0 +1,17 @@
+# The sdist contains everything the test suite reads.
+include README.md CHANGELOG.md CONTRIBUTING.md LICENSE NOTICE CITATION.cff pyproject.toml MANIFEST.in
+graft benchmarks
+graft data
+graft docs
+graft examples
+graft integration
+graft provenance
+graft scripts
+graft tests
+graft tools
+graft validation
+recursive-include src/fepdmc_toolkit *.py *.f90 *.csv *.sys
+recursive-include src/fepdmc_toolkit/fepdmc/data *
+global-exclude *.pyc *.o *.mod *.x
+prune build
+global-exclude __pycache__

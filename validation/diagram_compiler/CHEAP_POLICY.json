@@ -1,0 +1,30 @@
+{
+  "approximate": [
+    "electron_interface.matrix2"
+  ],
+  "drop": [
+    "factor.vertex",
+    "eval.matmul",
+    "eval.trace"
+  ],
+  "keep": [
+    "factor.electron_propagator",
+    "factor.phonon_propagator",
+    "factor.prefactor",
+    "diagram.sign",
+    "diagram.multiplicity",
+    "family.global_factors",
+    "diagram_sum.all_pairings",
+    "momentum.q_terms"
+  ],
+  "name": "propagator_only_v1",
+  "notes": [
+    "CHEAP_EVALUATOR_SEMANTICS=STATE_WEIGHT",
+    "Two-band matrix G is replaced by scalar Gel of the same k_form.",
+    "Empty two-band global_factors are approximated by (g/sqrt(L))**(2n).",
+    "On scalar families this policy equals the exact evaluator.",
+    "Historical P1 prop score is a different transition object."
+  ],
+  "refuse": [],
+  "schema_version": 1
+}

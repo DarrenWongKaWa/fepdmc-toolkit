@@ -1,0 +1,177 @@
+{
+  "protocol": "closure/2026-09-16-final/FINAL_PROTOCOL.md",
+  "source": "closure/2026-09-16-final/p1_confirm/result.json",
+  "classification": "P1_UNRESOLVED_WITHIN_BUDGET",
+  "T_ratio_point": 0.9563531231959227,
+  "T_boot_2.5": 0.9402965854020635,
+  "T_boot_97.5": 0.9718087982456604,
+  "K_ratio_point": 2.486013095494797,
+  "K_boot_2.5": 0.1643672083513463,
+  "K_boot_97.5": 21.515793312665398,
+  "hac_ok": false,
+  "threshold": 0.95,
+  "n_chains_per_arm": 6,
+  "nmcmc_1e4": 200,
+  "warmup": "native warmup_flag==0 production blocks",
+  "n_blocks_c5_reference": 151,
+  "bootstrap_seed": 9143610,
+  "master_seed": 9143600,
+  "binaries": {
+    "Bbest": "3c4f4bf9225b7a530303f3f414256a4c25b0a61e0d874a1ae42a46346f24efab",
+    "P1_clean": "f9518a21fc2b8750fb3b7ed6f6e065db398cb2f425969cd718d1dcdef2b2c25c"
+  },
+  "timed_path_provenance": {
+    "gating_applied_before_compile": true,
+    "confirm_env": ["LINEAR_DA=on", "LINEAR_DA_SCORE=prop", "DMC_OBSERVER=1", "P1_FIXTURE=0", "C2_DUMP=0"],
+    "c2_swap_tsv_in_confirm": false,
+    "release_fortran_copied_from_confirm_tree": true,
+    "linear_da_mod_sha256": "004b23b66e00f4ca20e2cc683c8e99124f12713549fcc02363e0e0afc37854df",
+    "note": "0.956 was measured with this clean binary after P1_FIXTURE gating; not a later source revision. Do not rerun."
+  },
+  "arms": {
+    "Bbest": {
+      "Q_eV": -0.25140274385633,
+      "E_bare_eV": 9.35487318746596,
+      "JK_SE_eV": 0.002077497948440725,
+      "JK_SE_meV": 2.077497948440725,
+      "point_95_halfwidth_eV": 0.005340378491866113,
+      "point_95_halfwidth_meV": 5.340378491866113,
+      "relative_JK_SE": 0.008263624798096714,
+      "relative_point_95_halfwidth": 0.02124232381058656,
+      "T_mean_s": 32.720942625,
+      "VarJK": 4.3159977257754205e-06,
+      "K": 0.000141223513954728,
+      "hac_fail": [
+        0,
+        3
+      ],
+      "a1_rate": null
+    },
+    "P1": {
+      "Q_eV": -0.2466137304898215,
+      "E_bare_eV": 9.35487318746596,
+      "JK_SE_eV": 0.003349524581587497,
+      "JK_SE_meV": 3.349524581587497,
+      "point_95_halfwidth_eV": 0.008610227050723404,
+      "point_95_halfwidth_meV": 8.610227050723404,
+      "relative_JK_SE": 0.013582068504193615,
+      "relative_point_95_halfwidth": 0.03491381860053723,
+      "T_mean_s": 31.29277567333334,
+      "VarJK": 1.1219314922658898e-05,
+      "K": 0.0003510835050832461,
+      "hac_fail": [
+        0,
+        2,
+        3
+      ],
+      "a1_rate": 0.3320580600626571
+    }
+  },
+  "p1_counters_sum": {
+    "n_invoked": 1395968,
+    "n_eligible": 1395968,
+    "n_score": 1395968,
+    "n_stage1_rej": 463424,
+    "n_stage2": 30600,
+    "n_accept": 901944,
+    "n_exact_stage": 932544,
+    "a1_rate": 0.33197322574729504
+  },
+  "p1_counters_per_chain": [
+    {
+      "chain": "P1_r0",
+      "mode": "on",
+      "score": "prop",
+      "n_invoked": 232060,
+      "n_eligible": 232060,
+      "n_score": 232060,
+      "n_stage1_rej": 77628,
+      "n_stage2": 5381,
+      "n_accept": 149051,
+      "aux_seed": 2444666948,
+      "n_exact_stage": 154432
+    },
+    {
+      "chain": "P1_r1",
+      "mode": "on",
+      "score": "prop",
+      "n_invoked": 230246,
+      "n_eligible": 230246,
+      "n_score": 230246,
+      "n_stage1_rej": 78834,
+      "n_stage2": 5069,
+      "n_accept": 146343,
+      "aux_seed": 4040983019,
+      "n_exact_stage": 151412
+    },
+    {
+      "chain": "P1_r2",
+      "mode": "on",
+      "score": "prop",
+      "n_invoked": 232010,
+      "n_eligible": 232010,
+      "n_score": 232010,
+      "n_stage1_rej": 78418,
+      "n_stage2": 5248,
+      "n_accept": 148344,
+      "aux_seed": 4073644405,
+      "n_exact_stage": 153592
+    },
+    {
+      "chain": "P1_r3",
+      "mode": "on",
+      "score": "prop",
+      "n_invoked": 235931,
+      "n_eligible": 235931,
+      "n_score": 235931,
+      "n_stage1_rej": 75788,
+      "n_stage2": 4967,
+      "n_accept": 155176,
+      "aux_seed": 986269306,
+      "n_exact_stage": 160143
+    },
+    {
+      "chain": "P1_r4",
+      "mode": "on",
+      "score": "prop",
+      "n_invoked": 230076,
+      "n_eligible": 230076,
+      "n_score": 230076,
+      "n_stage1_rej": 77603,
+      "n_stage2": 5223,
+      "n_accept": 147250,
+      "aux_seed": 3272455629,
+      "n_exact_stage": 152473
+    },
+    {
+      "chain": "P1_r5",
+      "mode": "on",
+      "score": "prop",
+      "n_invoked": 235645,
+      "n_eligible": 235645,
+      "n_score": 235645,
+      "n_stage1_rej": 75153,
+      "n_stage2": 4712,
+      "n_accept": 155780,
+      "aux_seed": 3429015829,
+      "n_exact_stage": 160492
+    }
+  ],
+  "fixture": {
+    "off_exit": 0,
+    "on_exit": 0,
+    "n_a1": 4372,
+    "a1_fp_match": 4372,
+    "a1_zero_g_env": true,
+    "n_accept_pairs": 6350,
+    "y_reverse": 6350,
+    "counts_line": [
+      "11034",
+      "11034",
+      "11034",
+      "4372"
+    ],
+    "ok": true
+  },
+  "g_env_note": "production confirm did not emit independent g/env ncall totals (C1_PROFILE=off skips c1_write). Fixture ON: 4372 a1 events with recorded g/env increment 0."
+}

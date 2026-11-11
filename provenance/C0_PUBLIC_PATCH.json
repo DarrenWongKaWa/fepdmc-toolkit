@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "adapter": "c0_wq_refresh",
+  "upstream_repository": "https://github.com/yaoluo/FEP-DMC",
+  "upstream_commit": "05d08449cffdbd0dfbbbf5009add5cc887bc754b",
+  "preimage_file": "perturbo-fep-dmc/pert-src/diagMC_JJ_updates.f90",
+  "preimage_sha256": "6c97c694f76df18e9adee7b79666b480f1de5b00f30e8bb5ba08510289e43571",
+  "postimage_sha256": "be3a2215ab257e12aaaba1a0a3cca8714a4174c0fee890bb881cd75a32b9a235",
+  "changed_region": {
+    "subroutine": "add_external_ph",
+    "anchor": "      call sample_q_omp_int(diagram%seed,vn1%i_q,vn1%Pq,vn1); Pq = vn1%Pq",
+    "inserted_line": "      call cal_wq_int( vn1%i_q,     vn1%wq   )"
+  },
+  "semantic_description": "After sample_q_omp_int writes a new vn1%i_q in add_external_ph, recompute vn1%wq with native cal_wq_int so later tau sampling, Dph, and the vn2%wq copy use frequencies of the sampled q. add_ph already performs this refresh and is not modified. This is a source transform of the public pin; it is not a compiled or runtime LiF validation, not P1, and not a claim that the public pin equals the historical timed donor.",
+  "historical_donor_equivalence": "not_established",
+  "build_level_established": 0
+}

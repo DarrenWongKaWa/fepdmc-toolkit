@@ -1,0 +1,17 @@
+{
+  "docker_image": "futureb-u22-env:local",
+  "docker_image_note": "local Ubuntu 22.04.5 + distro gfortran 11.4 cache; OS authority is public.ecr.aws/docker/library/ubuntu:22.04 sha256:829f6df217bcbae2b371026e81711d1a787c61b2967ad09d015063663ebafbf7",
+  "fflags": [
+    "-O0",
+    "-std=f2008",
+    "-ffree-line-length-none",
+    "-fcheck=bounds",
+    "-J",
+    "."
+  ],
+  "gfortran_version": "GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "os": "Ubuntu 22.04 aarch64",
+  "private_docker_used": false,
+  "public_image": "public.ecr.aws/docker/library/ubuntu:22.04",
+  "qe_hdf5_mpi_linked": false
+}

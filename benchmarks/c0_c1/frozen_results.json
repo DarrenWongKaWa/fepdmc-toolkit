@@ -1,0 +1,23 @@
+{
+  "c0": {
+    "status": "C0_ACCEPTED",
+    "advance": "YES",
+    "native_model_not_ready_hit": true,
+    "pairs": 4,
+    "wq_oracle_ok": true,
+    "c1_c7": "STARTING_C1",
+    "revision": "repair_v2",
+    "repair_v1_not_inherited": true,
+    "user_authorized": true,
+    "weight_ratio_recompute": "NOT_COMPUTED"
+  },
+  "c1": {
+    "status": "C1_PROFILE_COMPLETE",
+    "f_swap_coarse_exclusive_mc_max": 0.21198245605713084,
+    "observer_overhead_coarse": 0.02011043878931532,
+    "observer_overhead_detail": 0.41075936181771927,
+    "observer_overhead_sparse": 0.03176311728124307,
+    "n_runs": 16,
+    "binary_sha256": "3c4f4bf9225b7a530303f3f414256a4c25b0a61e0d874a1ae42a46346f24efab"
+  }
+}

@@ -1,0 +1,11 @@
+name,status_match,accepted_match,reject_stage_match,exact_y_match,ell_hat_abs_err,ell_R_abs_err,py_status,ft_status,py_accepted,ft_accepted,py_reject_stage,ft_reject_stage,py_ell_hat,ft_ell_hat,py_ell_R,ft_ell_R,n_exact_graph,n_electron_twoband,n_trace
+stage1_reject,True,True,True,True,0.0,,0,0,False,False,1,1,-0.5232871026284194,-0.5232871026284194,,,0,0,0
+stage2_reject,True,True,True,True,0.0,0.0,0,0,False,False,2,2,-0.5232871026284194,-0.5232871026284194,-0.5280651532670686,-0.5280651532670686,2,2,2
+accept,True,True,True,True,0.0,0.0,0,0,True,True,0,0,-0.5232871026284194,-0.5232871026284194,-0.5280651532670686,-0.5280651532670686,2,2,2
+asymmetric_q,True,True,True,True,0.0,0.0,0,0,True,True,0,0,-0.5232871026284194,-0.5232871026284194,-0.12806515326706858,-0.12806515326706858,2,2,2
+cached_exact_x,True,True,True,True,0.0,0.0,0,0,True,True,0,0,-0.5232871026284194,-0.5232871026284194,-0.5280651532670686,-0.5280651532670686,1,1,1
+uncached_exact_x,True,True,True,True,0.0,0.0,0,0,True,True,0,0,-0.5232871026284194,-0.5232871026284194,-0.5280651532670686,-0.5280651532670686,2,2,2
+invalid_target_g0,True,True,True,True,,,2,2,False,False,0,0,,,,,0,0,0
+invalid_proposal_ratio,True,True,True,True,,,3,3,False,False,0,0,,,,,0,0,0
+invalid_u1,True,True,True,True,,,4,4,False,False,0,0,,,,,0,0,0
+invalid_u2,True,True,True,True,,,4,4,False,False,0,0,,,,,2,2,2

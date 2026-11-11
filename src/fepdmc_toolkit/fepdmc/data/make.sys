@@ -1,0 +1,27 @@
+include ../../make.inc
+
+# gfortran / OpenMP. -fmax-stack-var-size=1 keeps the large local diagram arrays
+# (diagrams(200) etc. in diagmc_EZ_matrix) off the stack, as in the working
+# prototypes/r5_p0_native_chain_audit build; without it perturbo.x segfaults at start.
+FFLAGS += -O3 -fmax-stack-var-size=1 -fbacktrace -fopenmp -x f95-cpp-input -ffree-line-length-none -I.
+LDFLAGS += -fopenmp
+
+# Ubuntu 20.04 serial HDF5. Path may be empty if configure already added it.
+IFLAGS += -I/usr/include/hdf5/serial
+HDF5_LIB = -L/usr/lib/x86_64-linux-gnu/hdf5/serial -lhdf5_fortran -lhdf5 -lz
+
+MODFLAGS= $(BASEMOD_FLAGS) \
+          $(MOD_FLAG)../../PW/src \
+          $(MOD_FLAG)../../dft-d3 \
+          $(MOD_FLAG)../../LR_Modules \
+          $(MOD_FLAG)../../PHonon/PH
+
+PHMODS = ../../PHonon/PH/libph.a
+LRMODS = ../../LR_Modules/liblrmod.a
+PWOBJS = ../../PW/src/libpw.a
+QEMODS = ../../Modules/libqemod.a ../../KS_Solvers/libks_solvers.a \
+         ../../FFTXlib/libqefft.a ../../LAXlib/libqela.a \
+         ../../UtilXlib/libutil.a ../../dft-d3/libdftd3qe.a
+
+F90FLAGS = $(FFLAGS) $(FDFLAGS) $(MODFLAGS) $(IFLAGS)
+# HDF5 must follow object files; do not put it in LDFLAGS.

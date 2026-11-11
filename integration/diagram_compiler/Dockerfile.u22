@@ -1,0 +1,9 @@
+FROM public.ecr.aws/docker/library/ubuntu:22.04@sha256:829f6df217bcbae2b371026e81711d1a787c61b2967ad09d015063663ebafbf7
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y gfortran ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+CMD ["gfortran", "--version"]

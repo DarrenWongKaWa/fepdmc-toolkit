@@ -1,0 +1,81 @@
+{
+  "source": "research/mainline/CLOSURE/2026-09-14/runs/night1/C5_dev/result.json",
+  "definition": "Q = Re(sum N_b/tauMax_b / sum D_b) - E_bare",
+  "E_bare_eV": 9.35487318746596,
+  "config": "Method0 20^3 rank20 Nmcmc(1e4)=200 6 chains/arm",
+  "not_1pct_ground_state": true,
+  "hac_fail_chains": [
+    "B0_r3",
+    "Bbest_r1",
+    "Bbest_r2",
+    "Bbest_r4",
+    "P1_r1"
+  ],
+  "n_hac_fail": 5,
+  "arms": {
+    "B0": {
+      "Q_eV": -0.25025326004128345,
+      "ratio_eV": 9.104619927424677,
+      "E_bare_eV": 9.35487318746596,
+      "JK_SE_eV": 0.002368213422981714,
+      "JK_SE_meV": 2.368213422981714,
+      "point_95_halfwidth_eV": 0.006087686408026589,
+      "point_95_halfwidth_meV": 6.087686408026589,
+      "relative_JK_SE": 0.00946326702233984,
+      "relative_point_95_halfwidth": 0.024326102313401727,
+      "T_mean_s": 29.256280437500006,
+      "n_hac_fail": 1,
+      "hac_fail": null,
+      "status": "HAC_UNRESOLVED"
+    },
+    "Bbest": {
+      "Q_eV": -0.2478420006070916,
+      "ratio_eV": 9.107031186858869,
+      "E_bare_eV": 9.35487318746596,
+      "JK_SE_eV": 0.0037118026055344383,
+      "JK_SE_meV": 3.711802605534438,
+      "point_95_halfwidth_eV": 0.009541492355253894,
+      "point_95_halfwidth_meV": 9.541492355253894,
+      "relative_JK_SE": 0.014976487425223886,
+      "relative_point_95_halfwidth": 0.03849828653691428,
+      "T_mean_s": 29.946858597333335,
+      "n_hac_fail": 3,
+      "hac_fail": null,
+      "status": "HAC_UNRESOLVED"
+    },
+    "P1": {
+      "Q_eV": -0.24958376766062607,
+      "ratio_eV": 9.105289419805334,
+      "E_bare_eV": 9.35487318746596,
+      "JK_SE_eV": 0.002342920796585855,
+      "JK_SE_meV": 2.342920796585855,
+      "point_95_halfwidth_eV": 0.006022669642037862,
+      "point_95_halfwidth_meV": 6.022669642037862,
+      "relative_JK_SE": 0.009387312398343405,
+      "relative_point_95_halfwidth": 0.02413085473662392,
+      "T_mean_s": 29.603988611166653,
+      "n_hac_fail": 1,
+      "hac_fail": null,
+      "status": "HAC_UNRESOLVED"
+    }
+  },
+  "comparisons": {
+    "P1_over_B0": {
+      "T_point": 1.0118849070513065,
+      "T_boot_p2.5": 0.9701643413666442,
+      "T_boot_p97.5": 1.061334027967144,
+      "TVar_point": 0.9903863729643511,
+      "TVar_boot_p2.5": 0.012242045149066884,
+      "TVar_boot_p97.5": 78.25266239857827
+    },
+    "P1_over_Bbest": {
+      "T_point": 0.9885507194334829,
+      "T_boot_p2.5": 0.9524921952102715,
+      "T_boot_p97.5": 1.0244966527485875,
+      "TVar_point": 0.39386231263460514,
+      "TVar_boot_p2.5": 0.006362906235371649,
+      "TVar_boot_p97.5": 3.8193802854498693
+    }
+  },
+  "timing_note": "historical P1 binary was C2 fixture; after-commit p1_prop_ell still ran with C2_DUMP=0"
+}

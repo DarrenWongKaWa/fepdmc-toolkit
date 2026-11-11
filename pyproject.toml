@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fepdmc-toolkit"
+dynamic = ["version"]
+description = "Source patches, run tools, statistics and a diagram compiler for first-principles electron-phonon diagrammatic Monte Carlo (FEP-DMC)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Kawa Wong" }]
+keywords = [
+  "diagrammatic Monte Carlo",
+  "electron-phonon",
+  "polaron",
+  "FEP-DMC",
+  "Perturbo",
+  "delayed acceptance",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Fortran",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = ["numpy>=1.26"]
+
+[project.optional-dependencies]
+# scipy: F intervals of the estimators and the sparse solver of the grouped toy
+analysis = ["scipy>=1.11"]
+# everything the test suite uses
+dev = ["pytest>=8", "scipy>=1.11"]
+
+[project.scripts]
+fepdmc-toolkit = "fepdmc_toolkit.fepdmc.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/DarrenWongKaWa/fepdmc-toolkit"
+Repository = "https://github.com/DarrenWongKaWa/fepdmc-toolkit"
+Documentation = "https://github.com/DarrenWongKaWa/fepdmc-toolkit/tree/main/docs"
+Issues = "https://github.com/DarrenWongKaWa/fepdmc-toolkit/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "fepdmc_toolkit.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fepdmc_toolkit = ["fortran/*.f90", "fepdmc/data/*"]
+"fepdmc_toolkit.diagram_compiler" = ["fortran/*.f90"]
+"fepdmc_toolkit.scheme_d.physics_first.symbolic" = ["*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = [
+  "E501",   # line length is left to the formatter
+  "E741",   # l, I and O follow the physics notation
+  "UP042",  # (str, Enum) classes keep their str() form
+  "B905",   # zip() is used on sequences of equal length
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["fepdmc_toolkit"]

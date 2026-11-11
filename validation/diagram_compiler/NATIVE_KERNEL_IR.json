@@ -1,0 +1,1091 @@
+{
+  "blocks": [
+    {
+      "id": "entry",
+      "ops": [
+        {
+          "args": [],
+          "attrs": {
+            "binding": "x",
+            "graph": "cheap"
+          },
+          "id": "cheap_x",
+          "op": "call_graph",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "y",
+            "graph": "cheap"
+          },
+          "id": "cheap_y",
+          "op": "call_graph",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "cheap_x"
+          ],
+          "attrs": {
+            "imag_atol": 1e-12,
+            "on_fail": "INVALID_CHEAP_WEIGHT"
+          },
+          "id": "log_wx",
+          "op": "log_positive_real",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "cheap_y"
+          ],
+          "attrs": {
+            "imag_atol": 1e-12,
+            "on_fail": "INVALID_CHEAP_WEIGHT"
+          },
+          "id": "log_wy",
+          "op": "log_positive_real",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "log_wy",
+            "log_wx"
+          ],
+          "id": "ell_hat",
+          "op": "sub_f64",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "kind": "provided_log_ratio",
+            "on_fail": "INVALID_PROPOSAL_RATIO"
+          },
+          "id": "log_q",
+          "op": "check_log_q",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "floor": 1e-300,
+            "on_fail": "INVALID_RANDOM_UNIFORM",
+            "which": "u1"
+          },
+          "id": "log_u1",
+          "op": "log_uniform",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "value": 0.0
+          },
+          "id": "zero",
+          "op": "const_f64",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "zero",
+            "ell_hat"
+          ],
+          "id": "min0_hat",
+          "op": "min_f64",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "log_u1",
+            "min0_hat"
+          ],
+          "id": "stage1_pass",
+          "op": "lt_f64",
+          "region": "control",
+          "type": "bool"
+        }
+      ],
+      "term": {
+        "args": [
+          "stage1_pass"
+        ],
+        "attrs": {
+          "false": "reject_stage1",
+          "true": "exact_candidate"
+        },
+        "op": "br_cond"
+      }
+    },
+    {
+      "id": "reject_stage1",
+      "ops": [],
+      "term": {
+        "args": [],
+        "attrs": {
+          "accepted": false,
+          "ell_R_valid": false,
+          "exact_y_evaluated": false,
+          "reject_stage": 1
+        },
+        "op": "return"
+      }
+    },
+    {
+      "id": "exact_candidate",
+      "ops": [],
+      "term": {
+        "args": [
+          "in.exact_x_valid"
+        ],
+        "attrs": {
+          "false": "compute_exact_x",
+          "true": "use_cache"
+        },
+        "op": "br_cond"
+      }
+    },
+    {
+      "id": "use_cache",
+      "ops": [
+        {
+          "args": [],
+          "attrs": {
+            "name": "exact_log_weight_x"
+          },
+          "id": "cached_px",
+          "op": "load_input",
+          "region": "control",
+          "type": "f64"
+        }
+      ],
+      "term": {
+        "args": [],
+        "attrs": {
+          "target": "after_exact_x"
+        },
+        "op": "br"
+      }
+    },
+    {
+      "id": "compute_exact_x",
+      "ops": [
+        {
+          "args": [],
+          "attrs": {
+            "binding": "x",
+            "graph": "exact"
+          },
+          "id": "exact_x",
+          "op": "call_graph",
+          "region": "exact",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "exact_x"
+          ],
+          "attrs": {
+            "imag_atol": 1e-12,
+            "on_fail": "INVALID_EXACT_TARGET"
+          },
+          "id": "computed_px",
+          "op": "log_positive_real",
+          "region": "exact",
+          "type": "f64"
+        }
+      ],
+      "term": {
+        "args": [],
+        "attrs": {
+          "target": "after_exact_x"
+        },
+        "op": "br"
+      }
+    },
+    {
+      "id": "after_exact_x",
+      "ops": [
+        {
+          "args": [],
+          "attrs": {
+            "preds": [
+              [
+                "use_cache",
+                "cached_px"
+              ],
+              [
+                "compute_exact_x",
+                "computed_px"
+              ]
+            ]
+          },
+          "id": "log_px",
+          "op": "phi",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "y",
+            "graph": "exact"
+          },
+          "id": "exact_y",
+          "op": "call_graph",
+          "region": "exact",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "exact_y"
+          ],
+          "attrs": {
+            "imag_atol": 1e-12,
+            "on_fail": "INVALID_EXACT_TARGET"
+          },
+          "id": "log_py",
+          "op": "log_positive_real",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "log_py",
+            "log_px"
+          ],
+          "id": "diff_pi",
+          "op": "sub_f64",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "diff_pi",
+            "log_q"
+          ],
+          "id": "ell_R",
+          "op": "add_f64",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "ell_R",
+            "ell_hat"
+          ],
+          "id": "delta",
+          "op": "sub_f64",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "floor": 1e-300,
+            "on_fail": "INVALID_RANDOM_UNIFORM",
+            "which": "u2"
+          },
+          "id": "log_u2",
+          "op": "log_uniform",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "zero",
+            "delta"
+          ],
+          "id": "min0_delta",
+          "op": "min_f64",
+          "region": "control",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "log_u2",
+            "min0_delta"
+          ],
+          "id": "stage2_pass",
+          "op": "lt_f64",
+          "region": "control",
+          "type": "bool"
+        }
+      ],
+      "term": {
+        "args": [
+          "stage2_pass"
+        ],
+        "attrs": {
+          "false": "reject_stage2",
+          "true": "accept"
+        },
+        "op": "br_cond"
+      }
+    },
+    {
+      "id": "reject_stage2",
+      "ops": [],
+      "term": {
+        "args": [],
+        "attrs": {
+          "accepted": false,
+          "ell_R_valid": true,
+          "exact_y_evaluated": true,
+          "reject_stage": 2
+        },
+        "op": "return"
+      }
+    },
+    {
+      "id": "accept",
+      "ops": [],
+      "term": {
+        "args": [],
+        "attrs": {
+          "accepted": true,
+          "ell_R_valid": true,
+          "exact_y_evaluated": true,
+          "reject_stage": 0
+        },
+        "op": "return"
+      }
+    }
+  ],
+  "entry": "entry",
+  "graphs": [
+    {
+      "id": "cheap",
+      "ops": [
+        {
+          "args": [],
+          "attrs": {
+            "im": 0.0,
+            "re": 1.0
+          },
+          "id": "c1",
+          "op": "const_c128",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "g"
+          },
+          "id": "c2",
+          "op": "load",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "L"
+          },
+          "id": "c3",
+          "op": "load",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c2",
+            "c3"
+          ],
+          "attrs": {
+            "n": 1
+          },
+          "id": "c4",
+          "op": "prim.prefactor",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "k"
+          },
+          "id": "c5",
+          "op": "load",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "value": 1.0
+          },
+          "id": "c6",
+          "op": "const_f64",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c6",
+            "c5"
+          ],
+          "id": "c7",
+          "op": "mul_f64",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "q",
+            "index": 0
+          },
+          "id": "c8",
+          "op": "load_index",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "value": -1.0
+          },
+          "id": "c9",
+          "op": "const_f64",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c9",
+            "c8"
+          ],
+          "id": "c10",
+          "op": "mul_f64",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c7",
+            "c10"
+          ],
+          "id": "c11",
+          "op": "add_f64",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "t"
+          },
+          "id": "c12",
+          "op": "load",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 1
+          },
+          "id": "c13",
+          "op": "load_index",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 0
+          },
+          "id": "c14",
+          "op": "load_index",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c13",
+            "c14"
+          ],
+          "id": "c15",
+          "op": "sub_f64",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c11",
+            "c12",
+            "c15"
+          ],
+          "id": "c16",
+          "op": "prim.electron_scalar",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "c1",
+            "c16"
+          ],
+          "id": "c17",
+          "op": "mul_c128",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "omega"
+          },
+          "id": "c18",
+          "op": "load",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 1
+          },
+          "id": "c19",
+          "op": "load_index",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 0
+          },
+          "id": "c20",
+          "op": "load_index",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c19",
+            "c20"
+          ],
+          "id": "c21",
+          "op": "sub_f64",
+          "region": "cheap",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "c18",
+            "c21"
+          ],
+          "id": "c22",
+          "op": "prim.phonon",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "c17",
+            "c22"
+          ],
+          "id": "c23",
+          "op": "mul_c128",
+          "region": "cheap",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "c4",
+            "c23"
+          ],
+          "id": "c24",
+          "op": "mul_c128",
+          "region": "cheap",
+          "type": "c128"
+        }
+      ],
+      "output": "c24",
+      "region": "cheap",
+      "type": "c128"
+    },
+    {
+      "id": "exact",
+      "ops": [
+        {
+          "args": [],
+          "attrs": {
+            "value": [
+              [
+                [
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  1.0,
+                  0.0
+                ]
+              ]
+            ]
+          },
+          "id": "e1",
+          "op": "const_c128_m2",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "im": 0.0,
+            "re": 1.0
+          },
+          "id": "e2",
+          "op": "const_c128",
+          "region": "exact",
+          "type": "c128"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "g"
+          },
+          "id": "e3",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "L"
+          },
+          "id": "e4",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e3",
+            "e4"
+          ],
+          "id": "e5",
+          "op": "prim.vertex_sigmaz",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [
+            "e5",
+            "e1"
+          ],
+          "id": "e6",
+          "op": "matmul",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "k"
+          },
+          "id": "e7",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "value": 1.0
+          },
+          "id": "e8",
+          "op": "const_f64",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e8",
+            "e7"
+          ],
+          "id": "e9",
+          "op": "mul_f64",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "q",
+            "index": 0
+          },
+          "id": "e10",
+          "op": "load_index",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "value": -1.0
+          },
+          "id": "e11",
+          "op": "const_f64",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e11",
+            "e10"
+          ],
+          "id": "e12",
+          "op": "mul_f64",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e9",
+            "e12"
+          ],
+          "id": "e13",
+          "op": "add_f64",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "t"
+          },
+          "id": "e14",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 1
+          },
+          "id": "e15",
+          "op": "load_index",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 0
+          },
+          "id": "e16",
+          "op": "load_index",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e15",
+            "e16"
+          ],
+          "id": "e17",
+          "op": "sub_f64",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "delta"
+          },
+          "id": "e18",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "gap"
+          },
+          "id": "e19",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e13",
+            "e14",
+            "e17",
+            "e18",
+            "e19"
+          ],
+          "id": "e20",
+          "op": "prim.electron_twoband",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [
+            "e20",
+            "e6"
+          ],
+          "id": "e21",
+          "op": "matmul",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "g"
+          },
+          "id": "e22",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "L"
+          },
+          "id": "e23",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e22",
+            "e23"
+          ],
+          "id": "e24",
+          "op": "prim.vertex_sigmaz",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [
+            "e24",
+            "e21"
+          ],
+          "id": "e25",
+          "op": "matmul",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "omega"
+          },
+          "id": "e26",
+          "op": "load",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 1
+          },
+          "id": "e27",
+          "op": "load_index",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [],
+          "attrs": {
+            "binding": "binding",
+            "field": "tau",
+            "index": 0
+          },
+          "id": "e28",
+          "op": "load_index",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e27",
+            "e28"
+          ],
+          "id": "e29",
+          "op": "sub_f64",
+          "region": "exact",
+          "type": "f64"
+        },
+        {
+          "args": [
+            "e26",
+            "e29"
+          ],
+          "id": "e30",
+          "op": "prim.phonon",
+          "region": "exact",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "e2",
+            "e30"
+          ],
+          "id": "e31",
+          "op": "mul_c128",
+          "region": "exact",
+          "type": "c128"
+        },
+        {
+          "args": [
+            "e25",
+            "e31"
+          ],
+          "id": "e32",
+          "op": "scale_m2",
+          "region": "exact",
+          "type": "c128_m2"
+        },
+        {
+          "args": [
+            "e32"
+          ],
+          "id": "e33",
+          "op": "trace",
+          "region": "exact",
+          "type": "c128"
+        }
+      ],
+      "output": "e33",
+      "region": "exact",
+      "type": "c128"
+    }
+  ],
+  "ir_kind": "NativeKernelIR",
+  "kind": "diagram",
+  "layout": {
+    "fields": [
+      {
+        "name": "k",
+        "shape": [],
+        "type": "f64"
+      },
+      {
+        "name": "q",
+        "shape": [
+          1
+        ],
+        "type": "f64"
+      },
+      {
+        "name": "tau",
+        "shape": [
+          2
+        ],
+        "type": "f64"
+      },
+      {
+        "name": "t",
+        "shape": [],
+        "type": "f64"
+      },
+      {
+        "name": "omega",
+        "shape": [],
+        "type": "f64"
+      },
+      {
+        "name": "g",
+        "shape": [],
+        "type": "f64"
+      },
+      {
+        "name": "L",
+        "shape": [],
+        "type": "i64"
+      },
+      {
+        "name": "delta",
+        "shape": [],
+        "type": "f64"
+      },
+      {
+        "name": "gap",
+        "shape": [],
+        "type": "f64"
+      }
+    ],
+    "model": "Holstein_twoband_hermitian",
+    "order": 1,
+    "schema_version": 1
+  },
+  "schema_version": 1,
+  "source": {
+    "cheap_policy_name": "propagator_only_v1",
+    "design": "B",
+    "diagram_ir_digest": "cf0f086bf76dbe4b614fbfc2bdbb47748aa5dd5778734c60ba1a119f7be64e58",
+    "diagram_ir_schema": "1.0.0",
+    "exact_lowering": "compile_exact/lower_diagramwise_share",
+    "numerical": {
+      "atol": 1e-12,
+      "clip": "none",
+      "rng_log_floor": 1e-300,
+      "rtol": 1e-10
+    },
+    "primitive_set": "native_kernel_v1",
+    "proposal_kind": "provided_log_ratio",
+    "target_policy_name": "positive_real_F_v1"
+  }
+}

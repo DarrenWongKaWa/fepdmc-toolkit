@@ -1,0 +1,274 @@
+{
+ "note": "LiF-hole T=500 K; E_pooled is Etrue pooled over chains (sum n / sum d); see NATIVE_REPORT.md (j)-(k)",
+ "sets": {
+  "maxorder7": {
+   "native_unfixed": {
+    "tag": "runs_lowo7_nfix",
+    "material": "lif_hole",
+    "n_chains": 4,
+    "E_pooled": -0.873113531531022,
+    "se": 0.0007390840687279638,
+    "sign_mean": 0.9994333333250001
+   },
+   "native_extfix": {
+    "tag": "runs_lowo7_nextfix",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8717749712502695,
+    "se": 0.00021826701832335245,
+    "sign_mean": 0.9993333333375001,
+    "nph_ext_mean": 0.82205,
+    "nph_ext_se": 0.005548369558879868
+   },
+   "native_extrmfix": {
+    "tag": "runs_lowo7_nrmfix",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8772754212978675,
+    "se": 0.00014455756019724582,
+    "sign_mean": 0.9993999999875001,
+    "nph_ext_mean": 0.6138916666666667,
+    "nph_ext_se": 0.004771924131902652
+   },
+   "native_allfix": {
+    "tag": "runs_lowo7_nfix2",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8763048614515496,
+    "se": 0.00032646315673093745,
+    "sign_mean": 0.9993333333250001,
+    "nph_ext_mean": 0.6356833333333334,
+    "nph_ext_se": 0.006899088391586287
+   },
+   "replica_mimic_evalstate": {
+    "tag": "runs_lowo7_mimic",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8764342517832674,
+    "se": 0.00028538645739661114,
+    "sign_mean": 0.99935,
+    "nph_ext_mean": 0.633875,
+    "nph_ext_se": 0.0041185110096378244
+   },
+   "own_outer_uniform": {
+    "tag": "runs_lowo7_extouter",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8764149707608534,
+    "se": 0.0004001612537870128,
+    "sign_mean": 0.9995000000250001,
+    "nph_ext_mean": 0.6406083333333334,
+    "nph_ext_se": 0.013560753581509133
+   },
+   "own_outermost_anytau": {
+    "tag": "runs_lowo7_g1_rpos",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8766958074009594,
+    "se": 0.00033500292382425455,
+    "sign_mean": 0.9993666666750001,
+    "nph_ext_mean": 0.6335916666666666,
+    "nph_ext_se": 0.006325953563856082
+   },
+   "own_taurange_anypos": {
+    "tag": "runs_lowo7_g2_rtau",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8753420526176052,
+    "se": 0.00027660904658894666,
+    "sign_mean": 0.9995333333375,
+    "nph_ext_mean": 0.6529083333333334,
+    "nph_ext_se": 0.0033631980599536796
+   },
+   "own_general_unordered": {
+    "tag": "runs_lowo7_extonly",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8750312747453017,
+    "se": 0.00016808161353130244,
+    "sign_mean": 0.9994166666625001,
+    "nph_ext_mean": 0.6587916666666667,
+    "nph_ext_se": 0.004682616238949101
+   },
+   "pure_own_unordered": {
+    "tag": "runs_lowo7_pure",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8748837572117106,
+    "se": 0.0001667716172214906,
+    "sign_mean": 0.99915,
+    "nph_ext_mean": 0.6574083333333334,
+    "nph_ext_se": 0.0038165354001132305
+   },
+   "own_general_unordered_plus_fixed_native": {
+    "tag": "runs_lowo7_ext_nfix2",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8750740977895055,
+    "se": 0.0003241309347735802,
+    "sign_mean": 0.9992500000125001,
+    "nph_ext_mean": 0.6565666666666667,
+    "nph_ext_se": 0.0019833833527105825
+   },
+   "own_ordered_general": {
+    "tag": "runs_lowo7_ord_c",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8767270934603001,
+    "se": 0.00027438554167327886,
+    "sign_mean": 0.9992333333250001,
+    "nph_ext_mean": 0.6365416666666667,
+    "nph_ext_se": 0.00418461728541534
+   },
+   "pure_own_ordered": {
+    "tag": "runs_lowo7_ord_pure",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -0.8762962375097926,
+    "se": 0.00022302667738086394,
+    "sign_mean": 0.9992833333375001,
+    "nph_ext_mean": 0.6315666666666666,
+    "nph_ext_se": 0.0024822544796187372
+   }
+  },
+  "maxorder21": {
+   "native_allfix": {
+    "tag": "runs_mo21_nfix",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -1.1693913404652427,
+    "se": 0.0021226876638323388,
+    "sign_mean": 0.9369833333375,
+    "nph_ext_mean": 2.20145,
+    "nph_ext_se": 0.05709239205146978
+   },
+   "own_ordered_native_ext_off": {
+    "tag": "runs_mo21_ext_noNat",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -1.1681194134232467,
+    "se": 0.0008281811608275257,
+    "sign_mean": 0.9342833333375,
+    "nph_ext_mean": 2.2403666666666666,
+    "nph_ext_se": 0.0112907463163846
+   },
+   "own_ordered_plus_fixed_native": {
+    "tag": "runs_mo21_ext_nat",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -1.1704773593933604,
+    "se": 0.0007175980333511223,
+    "sign_mean": 0.9389999999875001,
+    "nph_ext_mean": 2.24795,
+    "nph_ext_se": 0.009021365732667087
+   }
+  },
+  "maxorder51": {
+   "native_allfix": {
+    "tag": "runs_mo51_nfix",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -1.7461388916773501,
+    "se": 0.010261476961385949,
+    "sign_mean": 0.3162833333375,
+    "nph_ext_mean": 6.7687333333333335,
+    "nph_ext_se": 0.2423299911343509
+   },
+   "own_ordered_native_ext_off": {
+    "tag": "runs_mo51_ext_noNat",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -1.7547730284853855,
+    "se": 0.0032659051519856627,
+    "sign_mean": 0.3148833333375,
+    "nph_ext_mean": 6.399725,
+    "nph_ext_se": 0.053913442440579246
+   },
+   "own_ordered_plus_fixed_native": {
+    "tag": "runs_mo51_ext_nat",
+    "material": "lif_hole",
+    "n_chains": 8,
+    "E_pooled": -1.7414482368770494,
+    "se": 0.005138276429521101,
+    "sign_mean": 0.3109,
+    "nph_ext_mean": 6.429066666666667,
+    "nph_ext_se": 0.06301554104106706
+   }
+  }
+ },
+ "paper_cases_beta232": {
+  "lif_elec": {
+   "native": {
+    "tag": "runs",
+    "material": "lif_elec",
+    "n_chains": 12,
+    "E_pooled": 9.103755945401382,
+    "se": 0.0014803326992629598,
+    "sign_mean": 0.9514111111083333
+   },
+   "wqfix": {
+    "tag": "runs_wqfix",
+    "material": "lif_elec",
+    "n_chains": 12,
+    "E_pooled": 9.104770665075572,
+    "se": 0.002793100478053213,
+    "sign_mean": 0.9435111111166666
+   },
+   "allfix": {
+    "tag": "runs_allfix",
+    "material": "lif_elec",
+    "n_chains": 12,
+    "E_pooled": 9.104770665075572,
+    "se": 0.002793100478053213,
+    "sign_mean": 0.9435111111166666
+   },
+   "allfix_ext_p0.1": {
+    "tag": "runs_allfix_ext",
+    "material": "lif_elec",
+    "n_chains": 12,
+    "E_pooled": 9.106323283986676,
+    "se": 0.0012750530680940557,
+    "sign_mean": 0.9447000000083333
+   }
+  },
+  "sto": {
+   "native": {
+    "tag": "runs",
+    "material": "sto",
+    "n_chains": 6,
+    "E_pooled": 11.685503629497402,
+    "se": 0.0007853000258300888,
+    "sign_mean": 0.6795999999833334
+   },
+   "wqfix": {
+    "tag": "runs_wqfix",
+    "material": "sto",
+    "n_chains": 6,
+    "E_pooled": 11.685332643306804,
+    "se": 0.0007364181879699208,
+    "sign_mean": 0.6728222222166668
+   },
+   "allfix": {
+    "tag": "runs_allfix",
+    "material": "sto",
+    "n_chains": 6,
+    "E_pooled": 11.685750008447947,
+    "se": 0.0006380830120824842,
+    "sign_mean": 0.6673555555666667
+   },
+   "allfix_ext_p0.1": {
+    "tag": "runs_allfix_ext",
+    "material": "sto",
+    "n_chains": 6,
+    "E_pooled": 11.68587403750583,
+    "se": 0.0006642206474510034,
+    "sign_mean": 0.6770444444333336
+   }
+  }
+ },
+ "lif_hole500_full_order": {
+  "allfix_native": "evidence/lif_hole500_allfix_vs_wqfix.json",
+  "allfix_plus_ext": "evidence/lif_hole500_ext_allfix_pooled.json",
+  "burnin_moves_then_native": "evidence/lif_hole500_burnext_vs_allfix.json"
+ }
+}

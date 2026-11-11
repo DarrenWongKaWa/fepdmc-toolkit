@@ -1,0 +1,108 @@
+name: ci
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: ruff
+        run: |
+          python -m pip install ruff==0.16.9
+          ruff check .
+          ruff format --check .
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.12', '3.13', '3.14']
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: gfortran
+        run: sudo apt-get update && sudo apt-get install -y gfortran
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          python -m pip install -e '.[dev]' build twine
+      - name: Tests
+        run: python -m pytest -q
+      - name: Build and check
+        run: |
+          python -m build
+          python -m twine check dist/*
+      - name: Wheel install
+        run: |
+          python -m venv /tmp/wheel-venv
+          /tmp/wheel-venv/bin/pip install dist/fepdmc_toolkit-*.whl
+          /tmp/wheel-venv/bin/pip check
+          cd /tmp
+          /tmp/wheel-venv/bin/fepdmc-toolkit --version
+          /tmp/wheel-venv/bin/fepdmc-toolkit --help
+          /tmp/wheel-venv/bin/fepdmc-toolkit analyze --list
+  sdist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: gfortran
+        run: sudo apt-get update && sudo apt-get install -y gfortran
+      - name: Tests from the unpacked sdist
+        run: |
+          python -m pip install -U pip build
+          python -m build --sdist
+          mkdir /tmp/sdist && tar -xzf dist/fepdmc_toolkit-*.tar.gz -C /tmp/sdist
+          cd /tmp/sdist/fepdmc_toolkit-*
+          python -m pip install -e '.[dev]'
+          python -m pytest -q
+  upstream-adapters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install
+        run: python -m pip install -U pip && python -m pip install -e '.[dev]'
+      - name: Pinned FEP-DMC
+        run: |
+          git clone --quiet https://github.com/yaoluo/FEP-DMC /tmp/fep
+          git -C /tmp/fep checkout --quiet 05d08449cffdbd0dfbbbf5009add5cc887bc754b
+          python tools/verify_fep_dmc_upstream.py /tmp/fep
+      - name: prepare reproduces the recorded tree (both profiles)
+        env:
+          FEPDMC_TOOLKIT_FEP_DMC: /tmp/fep
+        run: python -m pytest -q -rs tests/test_prepare_upstream.py
+      - name: C0 and P1 source adapters
+        run: |
+          python integration/c0/apply_c0.py --tree /tmp/fep --dry-run
+          python integration/c0/apply_c0.py --tree /tmp/fep
+          python integration/c0/verify_c0.py --tree /tmp/fep
+          git -C /tmp/fep restore perturbo-fep-dmc/pert-src/diagMC_JJ_updates.f90
+          python integration/p1/apply_p1.py --tree /tmp/fep --dry-run
+          python integration/p1/apply_p1.py --tree /tmp/fep
+          python integration/p1/verify_p1.py --tree /tmp/fep
+      - name: fepdmc-toolkit prepare on the clone
+        run: |
+          git -C /tmp/fep checkout --quiet -- .
+          git -C /tmp/fep clean -fdq
+          fepdmc-toolkit prepare /tmp/fep/perturbo-fep-dmc --profile fixes --dry-run
+          fepdmc-toolkit prepare /tmp/fep/perturbo-fep-dmc --profile fixes
+          git -C /tmp/fep checkout --quiet -- .
+          git -C /tmp/fep clean -fdq
+          fepdmc-toolkit prepare /tmp/fep/perturbo-fep-dmc --profile research

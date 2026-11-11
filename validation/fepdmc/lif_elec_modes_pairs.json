@@ -1,0 +1,203 @@
+{
+  "material": "lif_elec",
+  "chains": 2,
+  "per_chain": [
+    {
+      "chain": "chain00",
+      "n_meas": 15000,
+      "sign_A": 0.9630666666666666,
+      "mean_lines": 72.71466666666667,
+      "E_rho_tiled4": 0.9958815834406396,
+      "E_rho_line": 0.9993010062693658,
+      "E_rho_K2": 0.9993607046441466,
+      "E_rho_K3": 0.9989928850714241,
+      "frac_lines_lt_099": 0.00570170472252927,
+      "selfcheck": {
+        "n_sign_mismatch": "0",
+        "n_O_mismatch": "0",
+        "n_env_mismatch": "0",
+        "n_r0_mismatch": "0",
+        "n_tiled_mismatch": "0",
+        "n_mode_mismatch": "0",
+        "n_q_mismatch": "0"
+      },
+      "E_rho_l1": 0.9998104548881359,
+      "E_rho_l2": 0.9995288304628172,
+      "E_rho_l3": 0.9996131098865763,
+      "E_prod_l1l2": 0.9993609162803346,
+      "E_prod_l1l2l3": 0.9989932055837584,
+      "E_rho_K4": null,
+      "n_K4": 0,
+      "E_prod_all": 0.9552818531897794,
+      "E_prod_laminar": 0.9776958562439472,
+      "laminar_fraction_of_lines": 0.6780035144420661,
+      "pair_disjoint": {
+        "n": 14218,
+        "E_joint": 0.9986179263070671,
+        "E_product": 0.9986179139501736,
+        "joint_over_product": 1.0000000123739954,
+        "E_deficit_joint": 0.0013820736929328614,
+        "E_deficit_sum": 0.0013822928670637787
+      },
+      "pair_nested": {
+        "n": 489,
+        "E_joint": 0.9976717041237403,
+        "E_product": 0.9976721874904172,
+        "joint_over_product": 0.9999995155055108,
+        "E_deficit_joint": 0.0023282958762597117,
+        "E_deficit_sum": 0.002329735287844581
+      },
+      "pair_crossing": {
+        "n": 293,
+        "E_joint": 0.9996828798443959,
+        "E_product": 0.9996828433462609,
+        "joint_over_product": 1.0000000365097144,
+        "E_deficit_joint": 0.00031712015560414475,
+        "E_deficit_sum": 0.0003172047417167235
+      }
+    },
+    {
+      "chain": "chain01",
+      "n_meas": 15000,
+      "sign_A": 0.9033333333333333,
+      "mean_lines": 73.23293333333334,
+      "E_rho_tiled4": 0.9958212070503543,
+      "E_rho_line": 0.9986191139227724,
+      "E_rho_K2": 0.9991914758135293,
+      "E_rho_K3": 0.9971148072147719,
+      "frac_lines_lt_099": 0.009791235076465322,
+      "selfcheck": {
+        "n_sign_mismatch": "0",
+        "n_O_mismatch": "0",
+        "n_env_mismatch": "0",
+        "n_r0_mismatch": "0",
+        "n_tiled_mismatch": "0",
+        "n_mode_mismatch": "0",
+        "n_q_mismatch": "0"
+      },
+      "E_rho_l1": 0.9995091266113246,
+      "E_rho_l2": 0.9996804205048874,
+      "E_rho_l3": 0.9979229315927679,
+      "E_prod_l1l2": 0.9991916524704657,
+      "E_prod_l1l2l3": 0.9971157846361904,
+      "E_rho_K4": null,
+      "n_K4": 0,
+      "E_prod_all": 0.9160626554481932,
+      "E_prod_laminar": 0.9712340943385238,
+      "laminar_fraction_of_lines": 0.6814775861430329,
+      "pair_disjoint": {
+        "n": 14193,
+        "E_joint": 0.997324539130647,
+        "E_product": 0.9973264601171468,
+        "joint_over_product": 0.9999980738638986,
+        "E_deficit_joint": 0.002675460869352997,
+        "E_deficit_sum": 0.0026741268063194107
+      },
+      "pair_nested": {
+        "n": 488,
+        "E_joint": 0.9988888947890657,
+        "E_product": 0.9988889744532135,
+        "joint_over_product": 0.9999999202472449,
+        "E_deficit_joint": 0.0011111052109342712,
+        "E_deficit_sum": 0.00111108496227664
+      },
+      "pair_crossing": {
+        "n": 319,
+        "E_joint": 0.9966503998088778,
+        "E_product": 0.9966738659441299,
+        "joint_over_product": 0.9999764555527602,
+        "E_deficit_joint": 0.0033496001911221818,
+        "E_deficit_sum": 0.0033512328348746095
+      }
+    }
+  ],
+  "pooled": {
+    "sign_A": {
+      "mean": 0.9332,
+      "se": 0.029866666666666652
+    },
+    "mean_lines": {
+      "mean": 72.97380000000001,
+      "se": 0.259133333333331
+    },
+    "E_rho_tiled4": {
+      "mean": 0.9958513952454969,
+      "se": 3.018819514266635e-05
+    },
+    "E_rho_line": {
+      "mean": 0.9989600600960691,
+      "se": 0.00034094617329671895
+    },
+    "E_rho_K2": {
+      "mean": 0.999276090228838,
+      "se": 8.46144153086592e-05
+    },
+    "E_rho_K3": {
+      "mean": 0.998053846143098,
+      "se": 0.0009390389283261413
+    },
+    "E_rho_l1": {
+      "mean": 0.9996597907497302,
+      "se": 0.00015066413840564286
+    },
+    "E_rho_l2": {
+      "mean": 0.9996046254838522,
+      "se": 7.57950210351077e-05
+    },
+    "E_rho_l3": {
+      "mean": 0.9987680207396721,
+      "se": 0.0008450891469041765
+    },
+    "E_prod_l1l2": {
+      "mean": 0.9992762843754002,
+      "se": 8.463190493446236e-05
+    },
+    "E_prod_l1l2l3": {
+      "mean": 0.9980544951099743,
+      "se": 0.0009387104737839657
+    },
+    "E_prod_all": {
+      "mean": 0.9356722543189864,
+      "se": 0.01960959887079311
+    },
+    "E_prod_laminar": {
+      "mean": 0.9744649752912355,
+      "se": 0.003230880952711679
+    }
+  },
+  "derived": {
+    "E_rho_tiled4": {
+      "sign_B": 0.9370876060980443,
+      "variance_gain": 1.0083491293669633,
+      "fraction_of_sign_deficit_recovered": 0.058197696078507256
+    },
+    "E_rho_line": {
+      "sign_B": 0.9341714822014556,
+      "variance_gain": 1.0020831287374046,
+      "fraction_of_sign_deficit_recovered": 0.014543146728377221
+    },
+    "E_rho_K2": {
+      "sign_B": 0.933876041991852,
+      "variance_gain": 1.0014493931972148,
+      "fraction_of_sign_deficit_recovered": 0.010120389099580926
+    },
+    "E_rho_K3": {
+      "sign_B": 0.9350196921802159,
+      "variance_gain": 1.0039036998145487,
+      "fraction_of_sign_deficit_recovered": 0.027240900901434537
+    },
+    "E_prod_all": {
+      "sign_B": 0.9973577774615261,
+      "variance_gain": 1.1422271980273193,
+      "fraction_of_sign_deficit_recovered": 0.9604457703821272
+    },
+    "E_prod_laminar": {
+      "sign_B": 0.9576537111773538,
+      "variance_gain": 1.0530949539524854,
+      "fraction_of_sign_deficit_recovered": 0.366073520619068
+    },
+    "ceiling_variance_gain": 1.1482872423082668,
+    "independence_K2_joint_over_product": 0.9999998057128292,
+    "independence_K3_joint_over_product": 0.9999993497680943
+  }
+}

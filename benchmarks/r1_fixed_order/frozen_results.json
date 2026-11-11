@@ -1,0 +1,13 @@
+{
+  "domain": "scalar finite 1D periodic Holstein phonon-vacuum, compile-once fixed order",
+  "r1_over_cse_overall": 0.9992,
+  "r1_over_cse_tier_range": [
+    0.9863,
+    1.0034
+  ],
+  "source": "research/mainline/M03/2026-09-13/summary.csv integral_cost.csv campaign_m3d",
+  "m4_r1_cse_total_ratio": 1.0,
+  "m4_source": "research/mainline/M04/2026-09-13/group_cost.csv",
+  "status": "VALIDATED_IN_SCOPE + NO_ADDITIONAL_CSE_GAIN_ESTABLISHED",
+  "material_consumer": "FUTURE_WORK"
+}

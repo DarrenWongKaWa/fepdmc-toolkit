@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: "fepdmc-toolkit: source patches, run tools, statistics and a diagram compiler for first-principles electron-phonon diagrammatic Monte Carlo"
+message: "If you use this software, cite it and the FEP-DMC paper by Luo, Park and Bernardi."
+type: software
+authors:
+  - family-names: Wong
+    given-names: Kawa
+version: "1.0.0"
+date-released: "2026-11-11"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/DarrenWongKaWa/fepdmc-toolkit"
+abstract: >
+  Tools for the FEP-DMC code of Luo, Park and Bernardi: opt-in fixes for
+  defects in the native external-phonon updates, exact Monte Carlo moves,
+  a Docker run driver, an end-to-end exactness check and a pooled ratio
+  estimator; source adapters for a phonon-frequency refresh (C0) and for
+  exact-corrected delayed acceptance in the swap update (P1); statistics
+  helpers; and an experimental compiler from fixed-order electron-phonon
+  diagram families to an exact delayed-acceptance kernel and generated Fortran.
+keywords:
+  - diagrammatic Monte Carlo
+  - electron-phonon
+  - polaron
+  - FEP-DMC
+  - delayed acceptance
+references:
+  - type: article
+    title: "First-principles diagrammatic Monte Carlo for electron-phonon interactions and polarons"
+    authors:
+      - family-names: Luo
+        given-names: Yao
+      - family-names: Park
+        given-names: Jinsoo
+      - family-names: Bernardi
+        given-names: Marco
+    journal: Nature Physics
+    year: 2025
+    volume: "21"
+    pages: "1275"
+    doi: "10.1038/s41567-025-02954-1"

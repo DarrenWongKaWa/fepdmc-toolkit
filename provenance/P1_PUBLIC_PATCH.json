@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "adapter": "p1_delayed_acceptance",
+  "architecture": "C",
+  "upstream_repository": "https://github.com/yaoluo/FEP-DMC",
+  "upstream_commit": "05d08449cffdbd0dfbbbf5009add5cc887bc754b",
+  "design_spec": "docs/P1_PUBLIC_ADAPTER_DESIGN.md",
+  "module_file": "perturbo-fep-dmc/pert-src/linear_da_mod.f90",
+  "module_sha256": "06870256b7849e9e296fa58e11d2a6f0ec59560a69f78f36cb1020772cfe97fc",
+  "historical_donor_equivalence": "not_established",
+  "build_level_established": 0,
+  "operating_domain": {
+    "DMC_Method": 0,
+    "dmc_band": 1,
+    "sample_gt": false,
+    "zeroTMC": true,
+    "LINEAR_DA_SCORE": "prop"
+  },
+  "states": {
+    "PUBLIC_PRISTINE": {
+      "perturbo-fep-dmc/pert-src/diagMC_JJ_updates.f90": "6c97c694f76df18e9adee7b79666b480f1de5b00f30e8bb5ba08510289e43571",
+      "perturbo-fep-dmc/pert-src/makefile": "e8b16763b3fcc43214310ec9b1fe5771692795eb8a84f2afcd138bbab675c2c4",
+      "perturbo-fep-dmc/pert-src/diagMC_JJ.f90": "89023d674cb494862d7e89052d0e01ffeaec49e2beacfc11dd96ed2eb9f04cd0"
+    },
+    "PUBLIC_C0_APPLIED": {
+      "perturbo-fep-dmc/pert-src/diagMC_JJ_updates.f90": "be3a2215ab257e12aaaba1a0a3cca8714a4174c0fee890bb881cd75a32b9a235",
+      "perturbo-fep-dmc/pert-src/makefile": "e8b16763b3fcc43214310ec9b1fe5771692795eb8a84f2afcd138bbab675c2c4",
+      "perturbo-fep-dmc/pert-src/diagMC_JJ.f90": "89023d674cb494862d7e89052d0e01ffeaec49e2beacfc11dd96ed2eb9f04cd0"
+    },
+    "PUBLIC_P1_APPLIED": {
+      "perturbo-fep-dmc/pert-src/diagMC_JJ_updates.f90": "abc5d06bd4f86720790e759b29b0aad057b9b0492539092df5f2237bbefa12c6",
+      "perturbo-fep-dmc/pert-src/makefile": "f643aee3988b1c0a2092786a70b80a3e77f981318f21b9c4449168363522c33a",
+      "perturbo-fep-dmc/pert-src/diagMC_JJ.f90": "b124e2bbab2d73055f5e8b1dc4a07876733ab19df344c90ef151d840d0c68f43"
+    },
+    "PUBLIC_C0_P1_APPLIED": {
+      "perturbo-fep-dmc/pert-src/diagMC_JJ_updates.f90": "06401b1e9a31fc8a839bab24480ae5dd6b3c30ab745c23337b9194fc8ac5a0a2",
+      "perturbo-fep-dmc/pert-src/makefile": "f643aee3988b1c0a2092786a70b80a3e77f981318f21b9c4449168363522c33a",
+      "perturbo-fep-dmc/pert-src/diagMC_JJ.f90": "b124e2bbab2d73055f5e8b1dc4a07876733ab19df344c90ef151d840d0c68f43"
+    }
+  }
+}

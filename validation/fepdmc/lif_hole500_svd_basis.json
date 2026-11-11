@@ -1,0 +1,65 @@
+{
+  "material": "lif_hole",
+  "per_chain": {
+    "chain00": {
+      "sign_A": 0.07573333333333333,
+      "mean_rank": 6.0,
+      "E_gamma_line": 0.9824851980766182,
+      "E_prod_gamma": 0.5745877401467663,
+      "pair_gamma_joint": 0.966527463242374,
+      "pair_gamma_prod": 0.9664953055591609,
+      "pair_rho_joint": 0.8420340501469524,
+      "pair_rho_prod": 0.8428312828981773,
+      "pair_gamma_joint_over_prod": 1.000033272467055,
+      "pair_rho_joint_over_prod": 0.9990541016127409,
+      "E_comb": 0.35525720014348705,
+      "E_lam": 0.5261414005843891,
+      "E_mu": 0.5837082752918749,
+      "E_all_rho": 0.09460408650257741,
+      "n_dump": 750
+    },
+    "chain01": {
+      "sign_A": 0.1136,
+      "mean_rank": 6.0,
+      "E_gamma_line": 0.9863989434749707,
+      "E_prod_gamma": 0.7071804520472263,
+      "pair_gamma_joint": 0.9722692717884975,
+      "pair_gamma_prod": 0.9726100482692497,
+      "pair_rho_joint": 0.8807953953653084,
+      "pair_rho_prod": 0.8806629147475232,
+      "pair_gamma_joint_over_prod": 0.9996496268146123,
+      "pair_rho_joint_over_prod": 1.0001504328336832,
+      "E_comb": 0.48921424701203653,
+      "E_lam": 0.6180306897437389,
+      "E_mu": 0.7035342130008081,
+      "E_all_rho": 0.2351718847418984,
+      "n_dump": 750
+    },
+    "chain02": {
+      "sign_A": 0.1248,
+      "mean_rank": 6.0,
+      "E_gamma_line": 0.9895667493658291,
+      "E_prod_gamma": 0.7750295945718351,
+      "pair_gamma_joint": 0.9796619366749697,
+      "pair_gamma_prod": 0.979544922443085,
+      "pair_rho_joint": 0.9059720587404763,
+      "pair_rho_prod": 0.9062090136701374,
+      "pair_gamma_joint_over_prod": 1.0001194577494137,
+      "pair_rho_joint_over_prod": 0.9997385206656669,
+      "E_comb": 0.5819671465575298,
+      "E_lam": 0.6879110806876555,
+      "E_mu": 0.7724963619542117,
+      "E_all_rho": 0.34021285731334033,
+      "n_dump": 750
+    }
+  },
+  "pooled": {
+    "sign_A": 0.10471111111111113,
+    "independence_gamma_pair_joint_over_prod": 0.9999343516531555,
+    "independence_rho_pair_joint_over_prod": 0.9996571069087871,
+    "sign_mu_all_lines": 0.15251124349850428,
+    "sign_laminar_groups": 0.1714623758915731,
+    "sign_laminar_plus_mu": 0.2202221215254958,
+    "sign_all_modes_summed": 0.46886353912724305
+  }
+}

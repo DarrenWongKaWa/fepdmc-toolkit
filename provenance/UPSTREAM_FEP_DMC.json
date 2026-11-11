@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "role": "prospective_public_integration_baseline",
+  "repository": "https://github.com/yaoluo/FEP-DMC",
+  "default_branch": "main",
+  "reference_commit": "05d08449cffdbd0dfbbbf5009add5cc887bc754b",
+  "reference_commit_date": "2025-09-24T12:50:45-07:00",
+  "selected_reason": "Public default-branch tip as of the Future B reuse audit. Native Fortran of interest (diagMC_JJ_updates.f90, diagMC.f90, pert_param.f90, pert-src/makefile) is byte-identical from first source upload 0f9b7aa8fb4f7facf1094d139b017f5a5ef9d9a0 (2024-09-02) through this commit; later public commits only edited README.md. This is the checkout previously examined and the baseline for future integration work.",
+  "historical_donor_equivalence": "not_established",
+  "historical_donor_note": "The frozen 0.956 binary was built from a private adapter tree. This public commit is not asserted to be byte-identical to that donor. Pinned identity is not integration support: Future B cannot yet be applied automatically to this upstream.",
+  "files": {
+    "perturbo-fep-dmc/pert-src/diagMC_JJ_updates.f90": {
+      "sha256": "6c97c694f76df18e9adee7b79666b480f1de5b00f30e8bb5ba08510289e43571",
+      "role": "swap_updates"
+    },
+    "perturbo-fep-dmc/pert-src/diagMC.f90": {
+      "sha256": "599868f43fbc232c1d649183faae76d913a883db59c117db19b27e82438cea36",
+      "role": "propagators"
+    },
+    "perturbo-fep-dmc/pert-src/pert_param.f90": {
+      "sha256": "b36eefce4ef75f7f670ef02941b4da54155852f81dd99a4e8f4f30b15cc345e7",
+      "role": "runtime_parameters"
+    },
+    "perturbo-fep-dmc/pert-src/makefile": {
+      "sha256": "e8b16763b3fcc43214310ec9b1fe5771692795eb8a84f2afcd138bbab675c2c4",
+      "role": "build_manifest"
+    }
+  }
+}

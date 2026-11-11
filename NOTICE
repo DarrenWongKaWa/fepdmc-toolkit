@@ -1,0 +1,19 @@
+fepdmc-toolkit
+Copyright (c) 2026 Kawa Wong
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version. See LICENSE.
+
+Upstream work used or patched by this toolkit (not part of it):
+- FEP-DMC: Y. Luo, J. Park, M. Bernardi, Nat. Phys. 21, 1275 (2025),
+  https://github.com/yaoluo/FEP-DMC
+- Perturbo (GPL-3), https://perturbo-code.github.io/
+- Quantum ESPRESSO 6.5 (GPL)
+- the Luo-Bernardi electron-phonon compression and matrix-product band
+  summation used by the native code
+
+The Fortran under src/fepdmc_toolkit/fortran/, src/fepdmc_toolkit/fepdmc/data/
+and integration/p1/ is derived from or written against Perturbo/FEP-DMC
+and remains GPL-3.

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "description": "SHA256 of every file that `fepdmc-toolkit prepare` creates or changes in the perturbo-fep-dmc directory of the pinned FEP-DMC commit, for each profile. Paths are relative to that directory.",
+  "repository": "https://github.com/yaoluo/FEP-DMC",
+  "reference_commit": "05d08449cffdbd0dfbbbf5009add5cc887bc754b",
+  "profiles": {
+    "fixes": {
+      "make.sys": "773d96753d13573db5d44d9f8bfa64e2a15dd96594fbd69f4aba5228e3c3a5c0",
+      "pert-src/calc_bands.f90": "ddb71aebefb3893ceb1e0a18b5b5c0ac7b445710d33ec5ab03f4d4259ed86131",
+      "pert-src/diagMC.f90": "4f142f59b7237c505e1933663e61991dc27c532c3a71fd0e131e2843c4b4fcc7",
+      "pert-src/diagMC_JJ.f90": "f801c3c2ee99c52ee41e41f0a2723b685433ce51e823080857cb97d23fd38e49",
+      "pert-src/diagMC_JJ_updates.f90": "2c5c999ab9800c0fd41cc6944ce71dffa2ad758b6048837a89e7dbc25e3209ce",
+      "pert-src/diagMC_JJt.f90": "7d84450ba124330a04f896e01ff495238cdad5e5b54c498ca46611c8009803ba",
+      "pert-src/diagMC_gt.f90": "53c37829f688646e0007316cd1e6f103992445bb2bb85d20a75fa11b3f69bca9",
+      "pert-src/diagMC_set.f90": "7a5589a0bdb9659c3346674e2ca2610b83c4250e37597d4aa947a2b34cf52d8d",
+      "pert-src/makefile": "d1bd83e2060abd7da46f0b8825c16292a8ab6cf95e9a09006fda38c007d14b3b",
+      "pert-src/mkl_vsl.f90": "c75c1a419c7b6f6b5d17394d6854dbf83817c76288308742229955b80f1360dd",
+      "pert-src/perturbo.f90": "d38372a73da8836fd388513ee2b27d78faf1a1c12c59ec4d5d5cc42ab9d1bb44",
+      "pert-src/random_tool.f90": "73dcef4292f69bf518c8ce4063dfb7236794d559f22c26a5c21f53314b1d0241",
+      "pert-src/rb_window.f90": "da299b5062ef5e6e433241229f48bf55075667aa125712c833865c5639d3bb04"
+    },
+    "research": {
+      "make.sys": "773d96753d13573db5d44d9f8bfa64e2a15dd96594fbd69f4aba5228e3c3a5c0",
+      "pert-src/bchain.f90": "fe5c3ebaef4fe71095f4f9e2dd18f704621729675ff827397eaf3d4a74eb5f8a",
+      "pert-src/calc_bands.f90": "ddb71aebefb3893ceb1e0a18b5b5c0ac7b445710d33ec5ab03f4d4259ed86131",
+      "pert-src/diagMC.f90": "4f142f59b7237c505e1933663e61991dc27c532c3a71fd0e131e2843c4b4fcc7",
+      "pert-src/diagMC_JJ.f90": "f801c3c2ee99c52ee41e41f0a2723b685433ce51e823080857cb97d23fd38e49",
+      "pert-src/diagMC_JJ_updates.f90": "2c5c999ab9800c0fd41cc6944ce71dffa2ad758b6048837a89e7dbc25e3209ce",
+      "pert-src/diagMC_JJt.f90": "7d84450ba124330a04f896e01ff495238cdad5e5b54c498ca46611c8009803ba",
+      "pert-src/diagMC_gt.f90": "c4c8633d9a40935ed85c8c7ab55f549b93309a03108209142c2a07004c7af750",
+      "pert-src/diagMC_set.f90": "7a5589a0bdb9659c3346674e2ca2610b83c4250e37597d4aa947a2b34cf52d8d",
+      "pert-src/makefile": "8ccf72b009c91f1e35a530bd3018dce6ef6c2b957cd4a1971923182fcca2b10d",
+      "pert-src/mkl_vsl.f90": "c75c1a419c7b6f6b5d17394d6854dbf83817c76288308742229955b80f1360dd",
+      "pert-src/perturbo.f90": "d38372a73da8836fd388513ee2b27d78faf1a1c12c59ec4d5d5cc42ab9d1bb44",
+      "pert-src/random_tool.f90": "73dcef4292f69bf518c8ce4063dfb7236794d559f22c26a5c21f53314b1d0241",
+      "pert-src/rb_window.f90": "da299b5062ef5e6e433241229f48bf55075667aa125712c833865c5639d3bb04"
+    }
+  }
+}

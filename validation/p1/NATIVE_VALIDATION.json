@@ -1,0 +1,108 @@
+{
+  "schema": "future-b-native-validation-v1",
+  "public_version": "1.2.0",
+  "future_b_commit_at_validation": "1f8dcff864948fc6487d7a34c9b0c0ac1fd92d34",
+  "upstream_repository": "https://github.com/yaoluo/FEP-DMC",
+  "upstream_commit": "05d08449cffdbd0dfbbbf5009add5cc887bc754b",
+  "build": {
+    "os": "Ubuntu 22.04 aarch64 (public.ecr.aws/docker/library/ubuntu:22.04)",
+    "compiler": "gfortran 11.4 / mpif90 OpenMPI",
+    "qe": "6.5 tarball SHA256 258b2a8a6280e86dad779e5c56356d8b35dc96d12ff33dabeee914bc03d6d602",
+    "hdf5": "distro libhdf5-openmpi",
+    "level": 2,
+    "non_p1_overlay": [
+      "mkl_vsl.f90 xorshift shim (no Intel MKL)",
+      "2**31 -> 2147483647",
+      "stat%accept / module wraps for gfortran",
+      "makefile HDF5_LIB",
+      "-fallow-argument-mismatch -std=legacy",
+      "optional P1_VALIDATE_SEED in init_rand_seed_omp (scratch)"
+    ],
+    "private_docker_used": false
+  },
+  "linux_binaries_sha256": {
+    "PUBLIC_PRISTINE": "249a42f697b93ba3188c9a6f23dddeda08982f9505c4a6a798cca4944d9d75a7",
+    "PUBLIC_C0_APPLIED": "40992e27b05595d26757a7c820a3c395fb31abf543a611cc86c52434a00bc6e5",
+    "PUBLIC_P1_APPLIED": "cacfd43058ab3ded6a166d540f0336a04e463505e7ad887cf4a31b640ec20660",
+    "PUBLIC_C0_P1_APPLIED": "e134d7e1f62fbd5f86e1cfe209259927c7713be8bddd5ba945b92f1ce15e26c5"
+  },
+  "original_blocker": {
+    "classification": "D_Gel_underflow_0_over_0",
+    "T_K": 50,
+    "tau12_eV_inv": 126.77393229380149,
+    "ek_old_eV": 9.3548731874659588,
+    "ek_new_eV": 10.244187563333416,
+    "Re_mat_old": 0.033838879201042039,
+    "Re_mat_new": 0.035543399607840163,
+    "factor": 1.0503716567168582,
+    "Gel_num": 0.0,
+    "Gel_den": 0.0,
+    "P_kchange": "NaN",
+    "Dph_finite": true,
+    "vanilla": "same NaN P_accept; ran < NaN is false (reject); P1 error-stops"
+  },
+  "fixture": {
+    "hdf5_path": "public FEP-DMC LiF-electron lif-sp3_epwan.h5",
+    "hdf5_sha256": "4960618b64f4f1787e7a30aac4c2990ec5632ecbab83a9632f6c659f03da690b",
+    "hdf5_bytes": 423570352,
+    "calc_mode": "diagmc-JJ",
+    "DMC_Method": 0,
+    "dmc_band": 1,
+    "zeroTMC": true,
+    "sample_gt": false,
+    "LINEAR_DA_SCORE": "prop",
+    "T_K": 1000,
+    "tauMax_eV_inv": 11.60451,
+    "nk_svd": 20,
+    "nsvd": 20,
+    "Nmcmc_1e4": 1,
+    "P1_VALIDATE_SEED": 12345,
+    "public_jj_example_in_upstream": false
+  },
+  "p1_off": {
+    "update_try": [209, 499, 159, 606, 0, 1177, 2667],
+    "acceptance": [0.56938, 0.22044, 1.0, 1.0, null, 1.0, 0.13873],
+    "pristine_match": true,
+    "LINEAR_DA_COUNTS": "off prop 0 0 0 0 0 0 9142871"
+  },
+  "p1_on": {
+    "n_seen": 2458,
+    "n_eligible": 2458,
+    "n_s1_reject": 755,
+    "n_expensive": 1703,
+    "n_s2_reject": 87,
+    "n_accept": 1616,
+    "identities": {
+      "n_s1_reject_plus_n_expensive": 2458,
+      "n_accept_plus_n_s2_reject": 1703
+    },
+    "s1_gkq_enter_equals_gkq_now": 755,
+    "s2_independent_decision_match": 1703,
+    "s2_nonfinite_P_accept": 0,
+    "stage2_examples": [
+      {"P_accept": 0.000334180668095192, "ell_R": -8.003828788792687, "ell_hat": -2.30258509299405, "u2": 0.669048369174476, "expected": false, "observed": false},
+      {"P_accept": 0.981496650716646, "ell_R": -0.01867667768443794, "ell_hat": -0.0854083292712212, "u2": 0.0333906902962411, "expected": true, "observed": true},
+      {"P_accept": 1.01885217771232, "ell_R": 0.018676677684441128, "ell_hat": 0.0854083292712211, "u2": 0.135731857689674, "expected": true, "observed": true},
+      {"P_accept": 0.000658095240552898, "ell_R": -7.326160894631531, "ell_hat": -2.30258509299405, "u2": 0.0661256881957497, "expected": false, "observed": false}
+    ]
+  },
+  "c0_p1_on": {
+    "n_seen": 3057,
+    "n_eligible": 3057,
+    "n_s1_reject": 1145,
+    "n_expensive": 1912,
+    "n_s2_reject": 102,
+    "n_accept": 1810,
+    "note": "C0 changes wq refresh; not required to match P1-only counts"
+  },
+  "configuration_refusal": {
+    "zeroTMC_false": "linear_da: zeroTMC must be true",
+    "DMC_Method_1": "linear_da: DMC_Method must be 0",
+    "dmc_band_2": "linear_da: dmc_band must be 1",
+    "sample_gt_true": "linear_da: sample_gt must be false",
+    "score_linear": "linear_da: LINEAR_DA_SCORE must be prop",
+    "P1_off_finiteT": "runs; LINEAR_DA_COUNTS off"
+  },
+  "historical_0_956_attributed": false,
+  "speedup_claimed": false
+}

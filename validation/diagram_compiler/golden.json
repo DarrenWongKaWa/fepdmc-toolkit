@@ -1,0 +1,10 @@
+{
+  "atol": 1e-12,
+  "description": "Reference values for the two-band n=1 delayed-acceptance kernel: the emitted Fortran, its NativeKernelIR digest and the primitive runtime. These are the artifacts validated against the Python oracle with gfortran in the FEP-DMC toolchain image (stage 6).",
+  "differential_cases": 224,
+  "fortran_source_sha256": "ff4aa2de2338cb9c6894487ac805b4bbd971549dfbdb0e1480888c5af588c32e",
+  "max_absolute_error_from_r1_including_Op": 2.7755575615628914e-17,
+  "native_ir_digest": "4932e8b066554e966b71efb9b54c69974e17dcca82868d8df511927d2f03be31",
+  "native_ir_json_sha256": "3602fc4edd9176fd9a1ff07009a1bcf63def5db4ccfa8dea74d84c2aadff40dd",
+  "runtime_sha256": "64ec0f3071380023e9287197adc815d05cd51a6c5c79889b0d35cb162b7f85b2"
+}

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# compiled Fortran and native builds
+*.o
+*.mod
+*.x
+
+# run data: never commit workspaces, datasets or papers
+fepdmc_ws/
+*.h5
+*.pdf
+
+.DS_Store

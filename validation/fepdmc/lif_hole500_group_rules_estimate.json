@@ -1,0 +1,105 @@
+{
+  "material": "lif_hole",
+  "n_modes": 6,
+  "rules": {
+    "K0": {
+      "E_prod_rho": 0.5738351487653919,
+      "sign_B_est": 0.11036851519046054,
+      "fraction_of_lines": 0.3645113225310913,
+      "cost_per_position": 0.9613092291248817
+    },
+    "K1": {
+      "E_prod_rho": 0.5738351487653919,
+      "sign_B_est": 0.11036851519046054,
+      "fraction_of_lines": 0.3645113225310913,
+      "cost_per_position": 0.9613092291248817
+    },
+    "K2": {
+      "E_prod_rho": 0.5024866119341397,
+      "sign_B_est": 0.12603984231451396,
+      "fraction_of_lines": 0.4344190209153874,
+      "cost_per_position": 11.683036591293869
+    },
+    "K3": {
+      "E_prod_rho": 0.452180777077958,
+      "sign_B_est": 0.14006197641262044,
+      "fraction_of_lines": 0.48572583269439107,
+      "cost_per_position": 69.171178572417
+    },
+    "all_lines": {
+      "E_prod_rho": 0.1830784373346256,
+      "sign_B_est": 0.3459355140637041,
+      "fraction_of_lines": 1.0,
+      "cost_per_position": NaN
+    }
+  },
+  "per_chain": {
+    "chain00": {
+      "n_samples": 1500,
+      "sign_A": 0.037333333333333336,
+      "mean_lines": 30.851333333333333,
+      "K0": {
+        "fraction_of_lines": 0.34928504308898617,
+        "E_prod_rho": 0.5346097638578361,
+        "sign_B_est": 0.06983286849070915,
+        "cost_per_position": 0.9558449780129785
+      },
+      "K1": {
+        "fraction_of_lines": 0.34928504308898617,
+        "E_prod_rho": 0.5346097638578361,
+        "sign_B_est": 0.06983286849070915,
+        "cost_per_position": 0.9558449780129785
+      },
+      "K2": {
+        "fraction_of_lines": 0.4141069022471614,
+        "E_prod_rho": 0.4607760730241962,
+        "sign_B_est": 0.08102272561225829,
+        "cost_per_position": 11.41910801095129
+      },
+      "K3": {
+        "fraction_of_lines": 0.462543248534643,
+        "E_prod_rho": 0.4040075456676893,
+        "sign_B_est": 0.09240751499240893,
+        "cost_per_position": 68.42660706793785
+      },
+      "all_lines": {
+        "E_prod_rho": 0.12091127715703703,
+        "sign_B_est": 0.3087663467886919
+      }
+    },
+    "chain01": {
+      "n_samples": 1500,
+      "sign_A": 0.08933333333333333,
+      "mean_lines": 26.308666666666667,
+      "K0": {
+        "fraction_of_lines": 0.3797376019731965,
+        "E_prod_rho": 0.6130605336729478,
+        "sign_B_est": 0.14571698621361656,
+        "cost_per_position": 0.966773480236785
+      },
+      "K1": {
+        "fraction_of_lines": 0.3797376019731965,
+        "E_prod_rho": 0.6130605336729478,
+        "sign_B_est": 0.14571698621361656,
+        "cost_per_position": 0.966773480236785
+      },
+      "K2": {
+        "fraction_of_lines": 0.4547311395836135,
+        "E_prod_rho": 0.5441971508440832,
+        "sign_B_est": 0.16415619448718513,
+        "cost_per_position": 11.946965171636448
+      },
+      "K3": {
+        "fraction_of_lines": 0.5089084168541391,
+        "E_prod_rho": 0.5003540084882266,
+        "sign_B_est": 0.17854025713363572,
+        "cost_per_position": 69.91575007689615
+      },
+      "all_lines": {
+        "E_prod_rho": 0.24524559751221417,
+        "sign_B_est": 0.3642607012706281
+      }
+    }
+  },
+  "sign_A": 0.06333333333333334
+}
